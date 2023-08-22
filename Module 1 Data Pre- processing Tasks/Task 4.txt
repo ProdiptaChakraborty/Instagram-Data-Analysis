@@ -1,0 +1,11 @@
+Removing Unwanted Columns and Renaming Appropriate Columns for Improved Analysis: 
+
+Data Cleaning for photo_tags is a process of removing unwanted columns and renaming the appropriate columns in a dataset containing photo_tags. It involves identifying and removing irrelevant or redundant columns and renaming the columns to make them more descriptive and consistent with the content of the dataset. This improves the quality and usability of the data for analysis and modeling purposes.
+
+
+Task 4: response for py file: (photo tags.csv)
+
+df=photo_tags
+df=df.loc[:,['photo','tag ID']]
+df.rename(columns={'photo':'photo_id','tag ID':'tag_id'}, inplace=True)
+photo_tags=df

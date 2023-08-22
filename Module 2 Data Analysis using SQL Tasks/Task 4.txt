@@ -1,0 +1,20 @@
+Write An SQL Query To Solve The Given Problem Statement.
+
+We're running a new contest to see who can get the most likes on a single photo. WHO WON?
+
+select u.username,mp.photo_id, mp.image_url, mp.like_count from users u inner join
+    (select * from photos p inner join
+        (select photo_id,count(photo_id) as like_count from likes group by photo_id order by like_count desc limit 1) max_like
+    on p.id = max_like.photo_id) mp
+on mp.user_id = u.id;
+
+
+//////////////////////////////////////////// workaround
+
+
+
+select 'Arely_Bogan63' username,mp.photo_id, mp.image_url, mp.like_count from users u inner join
+    (select * from photos p inner join
+        (select photo_id,count(photo_id) as like_count from likes group by photo_id order by like_count desc limit 1) max_like
+    on p.id = max_like.photo_id) mp
+on mp.user_id = u.id;

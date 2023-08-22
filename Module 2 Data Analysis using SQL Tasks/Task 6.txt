@@ -1,0 +1,8 @@
+Write An SQL Query To Solve The Given Problem Statement.
+
+user ranking by postings higher to lower
+
+select u.username username, COALESCE(cp.cnt,0) cnt from users u inner join
+(select p.user_id uid, count(1) cnt from photos p group by p.user_id
+) cp
+on u.id = cp.uid order by cnt desc;

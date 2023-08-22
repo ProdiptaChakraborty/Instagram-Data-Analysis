@@ -1,0 +1,20 @@
+Download the cleaned dataset by clicking on the file name from File Explorer: 
+
+Utilize the MySQL database information provided in "Database info" to manually create the following tables for the cleaned dataset.
+
+comments
+follows
+likes
+photo_tags
+photos
+tags
+users
+How to finish the current Task?
+
+Once the database tables are created, input the DB connection details in the "db.py" file, and then click on "Run test" to complete the task.
+
+
+
+compress the csv file and rename the extension to be .csv.zip
+To Upload the final dataset to the database you should click on Data_base info -Details ,click on localhost link, log in using username and password from Data_base info -Details, you'll see phpMyAdmin dashboard,
+click on database (YOUR_DATABASE),click on Import tab on the right top side of the dashboard,make sure that you this on the top of the Import tab Importing into the database "YOUR_DATABASE" choose the file and select the Format to be CSV,press go.When import is done, on the left side click on the database name, when it expands, click on the table name and then go to the structure tab. You'll see the list of columns like COL1,COL2, etc, on the bottom of the list click on Check all and then click Change. Rename all the columns in the list in according to the excel columns order and click Save. 

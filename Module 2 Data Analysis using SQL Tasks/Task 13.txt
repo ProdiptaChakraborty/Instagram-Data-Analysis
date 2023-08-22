@@ -1,0 +1,7 @@
+Write An SQL Query To Solve The Given Problem Statement.
+
+Find users who have ever commented on a photo
+
+select dt.usname,c.comment_text from
+(select uc.uname usname, max(uc.cid) max_cid from
+(select u.username uname, c.id cid, c.comment_text ctext from users u inner join comments c on u.id = c.user_id) uc group by uc.uname) dt  inner join comments c on dt.max_cid = c.id;

@@ -1,0 +1,6 @@
+Write An SQL Query To Solve The Given Problem Statement.
+
+We want to target our inactive users with an email campaign. Find the users who have never posted a photo.
+
+select u.username from users u left join photos p 
+on u.id = p.user_id where p.user_id is null;

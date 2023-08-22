@@ -1,0 +1,38 @@
+Write An SQL Query To Solve The Given Problem Statement.
+
+What day of the week do most users register on? 
+We need to figure out when to schedule an ad campgain
+
+SELECT CASE
+    B.Weekday1 WHEN 0 THEN 'Monday' WHEN 1 THEN 'Tuesday' WHEN 2 THEN 'Wednesday' WHEN 3 THEN 'Thursday' WHEN 4 THEN 'Friday' WHEN 5 THEN 'Saturday' WHEN 6 THEN 'Sunday' ELSE 'UNDEFINED'
+END AS day_of_the_week,
+B.cnt AS total_registration
+FROM
+    (
+    SELECT
+        A.weekday AS Weekday1,
+        COUNT(A.weekday) AS cnt
+    FROM
+        (
+        SELECT
+            *,
+            WEEKDAY(created_at) AS WEEKDAY
+        FROM
+            users
+    ) A
+GROUP BY
+    A.weekday
+) B ORDER BY total_registration desc;
+
+
+
+/////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+SELECT DAYNAME(created_at) AS 'day_of_week', COUNT(*) AS 'total registration'
+FROM users
+GROUP BY DAYNAME(created_at)
+ORDER BY 'total registration' DESC
+LIMIT 1;

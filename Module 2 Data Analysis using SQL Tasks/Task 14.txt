@@ -1,0 +1,50 @@
+Write An SQL Query To Solve The Given Problem Statement.
+
+Are we overrun with bots and celebrity accounts? Find the percentage of our users who have either never commented on a photo or have commented on photos before.
+
+
+
+SELECT
+    A.total_celebs,
+    A.total_comms * 100 / A.total_users "%",
+    A.total_comms
+FROM
+    (
+    SELECT
+        (
+        SELECT
+            COUNT(*) AS cnt_comms
+        FROM
+            (SELECT
+                    uc.uname usname,
+                    MAX(uc.cid) max_cid
+                FROM
+                    (
+                    SELECT
+                        u.username uname,
+                        c.id cid,
+                        c.comment_text ctext
+                    FROM
+                        users u
+                    INNER JOIN comments c ON
+                        u.id = c.user_id
+                    ) uc
+                    GROUP BY uc.uname
+            )tb ) total_comms,
+            (
+                SELECT
+                    COUNT(*) AS cnt_celeb
+                FROM
+                    users u
+                LEFT JOIN comments c ON
+                    u.id = c.user_id
+                WHERE
+                    c.comment_text IS NULL
+            ) total_celebs,
+            (
+            SELECT
+                COUNT(*)
+            FROM
+                users
+            ) total_users
+        )A;

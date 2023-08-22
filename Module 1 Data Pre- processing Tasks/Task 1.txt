@@ -1,0 +1,11 @@
+Removing Unwanted Columns and Renaming Appropriate Columns for Improved Analysis:
+
+Data Cleaning for Comments is a process of removing unwanted columns and renaming the appropriate columns in a dataset containing comments. It involves identifying and removing irrelevant or redundant columns and renaming the columns to make them more descriptive and consistent with the content of the dataset. This improves the quality and usability of the data for analysis and modeling purposes.
+
+
+
+Task 1 response for py file.
+
+comments=comments.loc[:,['id','comment','User  id','Photo id','created Timestamp']]
+
+comments.rename(columns={'id':'id','comment':'comment_text', 'User  id':'user_id','Photo Id':'photo_id','created Timestamp':'created_at'}, inplace=True)

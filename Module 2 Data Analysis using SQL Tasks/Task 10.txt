@@ -1,0 +1,7 @@
+Write An SQL Query To Solve The Given Problem Statement.
+
+We have a small problem with bots on our site. Find users who have liked every single photo on the site
+
+select u.id,u.username,bots.photos_liked from users u inner join
+(select l.user_id l_uid, count(*) photos_liked, (select count(*) from photos) pcount from likes l group by l.user_id having photos_liked = pcount) bots
+on u.id = bots.l_uid;

@@ -1,0 +1,7 @@
+Write An SQL Query To Solve The Given Problem Statement.
+
+Our Investors want to know...How many times does the average user post? (total number of photos/total number of users)
+
+select round((select count(*) cp from photos p)/ (select count(*) cu from users),2) avg_post;
+
+

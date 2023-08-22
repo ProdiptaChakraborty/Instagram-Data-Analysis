@@ -1,0 +1,7 @@
+Write An SQL Query To Solve The Given Problem Statement.
+
+We also have a problem with celebrities. Find users who have never commented on a photo
+
+select u.username,c.comment_text from users u left join comments c
+on u.id = c.user_id where c.comment_text is null;
+M2 task 12

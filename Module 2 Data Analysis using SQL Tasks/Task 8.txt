@@ -1,0 +1,7 @@
+Write An SQL Query To Solve The Given Problem Statement.
+
+Total numbers of users who have posted at least one time
+
+select count(*) from
+(select p.user_id uid, count(1) cnt from photos p group by p.user_id
+) cp;

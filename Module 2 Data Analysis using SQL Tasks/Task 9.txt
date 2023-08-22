@@ -1,0 +1,7 @@
+Write An SQL Query To Solve The Given Problem Statement.
+
+A brand wants to know which hashtags to use in a post. What are the top 5 most commonly used hashtags?
+
+select t.tag_name, p_tg.cnt from tags t inner join 
+(select pt.tag_id ptgid, count(1) CNT from photo_tags pt GROUP by ptgid order by CNT desc) p_tg
+on t.id = p_tg.ptgid order by p_tg.cnt desc;

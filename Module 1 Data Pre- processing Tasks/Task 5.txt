@@ -1,0 +1,10 @@
+Removing Unwanted Columns and Renaming Appropriate Columns for Improved Analysis:
+
+Data Cleaning for photos is a process of removing unwanted columns and renaming the appropriate columns in a dataset containing photos. It involves identifying and removing irrelevant or redundant columns and renaming the columns to make them more descriptive and consistent with the content of the dataset. This improves the quality and usability of the data for analysis and modeling purposes.
+
+Task 5: response for py file: (photo.csv)
+
+df=photos
+df=df.loc[:,['id','image link','user ID','created dat']]
+df.rename(columns={'id':'id','image link':'image_url','user ID':'user_id','created dat':'created_date'}, inplace=True)
+photos=df

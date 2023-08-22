@@ -1,0 +1,5 @@
+Write An SQL Query To Solve The Given Problem Statement.
+
+Total Posts by users (longer versionof SELECT COUNT(*)FROM photos)
+
+Select count(*) from photos;

@@ -1,0 +1,10 @@
+Write An SQL Query To Solve The Given Problem Statement.
+
+Find the 5 oldest users.
+
+Task 1
+SELECT
+    created_at
+FROM
+    `users`
+    ORDER by STR_TO_DATE(created_at, '%d-%m-%Y %H:%i');

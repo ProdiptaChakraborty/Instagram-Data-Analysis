@@ -1,0 +1,12 @@
+Removing Unwanted Columns and Renaming Appropriate Columns for Improved Analysis:
+
+Data Cleaning for tags is a process of removing unwanted columns and renaming the appropriate columns in a dataset containing tags. It involves identifying and removing irrelevant or redundant columns and renaming the columns to make them more descriptive and consistent with the content of the dataset. This improves the quality and usability of the data for analysis and modeling purposes.
+
+
+Task 6: response for py file: (tags.csv)
+
+df=tags
+df=df.loc[:,['id','tag text','created time']]
+df.rename(columns={'id':'id','tag text':'tag_name','created time':'created_at'}, inplace=True)
+tags=df
+
